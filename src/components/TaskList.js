@@ -1,9 +1,18 @@
 import React from "react";
+import Task from "./Task"
 
-function TaskList() {
+function TaskList({ tasks, onDelete }) {
+
+  const iterateOverTasks = tasks.map(c => <Task
+    key={c.text}
+    text={c.text}
+    category={c.category}
+    onDeleteTask={onDelete}
+  />)
+
   return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      {iterateOverTasks}
     </div>
   );
 }
